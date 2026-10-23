@@ -73,11 +73,11 @@ h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5vw,50px);let
 .countdown{color:var(--ink-2);font-weight:400;border-left:1px solid var(--line);padding-left:10px}
 
 /* grid */
-.grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.grid{display:grid;grid-template-columns:190px minmax(0,1fr) 320px;gap:18px;align-items:start}
 .panel{background:var(--glass);backdrop-filter:blur(24px) saturate(1.2);-webkit-backdrop-filter:blur(24px) saturate(1.2);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
 
 /* sidebar */
-nav{grid-column:1/-1;display:flex;flex-direction:row;flex-wrap:wrap;gap:6px}
+nav{display:flex;flex-direction:column;gap:6px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 20px)}
 .nav-btn{display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:16px;border:1px solid transparent;background:none;text-align:left;color:var(--ink-2);font-size:14px}
 .nav-btn:hover{background:var(--glass)}
 .nav-btn[aria-selected="true"]{background:var(--glass-2);color:var(--ink);font-weight:500;border-color:var(--line);box-shadow:var(--shadow)}
@@ -245,7 +245,6 @@ textarea{width:100%;min-height:74px;resize:vertical;border-radius:12px;border:1p
       <div class="eyebrow">Travel plan</div>
       <h1>Spain &amp; Italy</h1>
       <div class="sub">Nov 5 – Nov 17, 2026</div>
-      <div class="tagline">Two countries · forever memories</
     </div>
     <div class="route-pill">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
@@ -260,9 +259,6 @@ textarea{width:100%;min-height:74px;resize:vertical;border-radius:12px;border:1p
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>Itinerary</button>
       <button class="nav-btn" role="tab" aria-selected="false" data-view="hotels" id="tab-hotels">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18V7M21 18v-5a3 3 0 0 0-3-3h-8v8M3 14h18M3 18h18"/><circle cx="6.5" cy="11" r="1.6"/></svg>Hotels</button>
-      <button class="nav-btn" role="tab" aria-selected="false" data-view="checklist" id="tab-checklist">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>Checklist</button>
-      
     </nav>
 
     <main style="min-width:0">
@@ -276,7 +272,7 @@ textarea{width:100%;min-height:74px;resize:vertical;border-radius:12px;border:1p
 
         <div class="journey panel">
           <div class="j-head">
-            <div><h2>Your Journey</h2><div class="hint">Select a day to see times, notes and where you sleep.</div></div>
+            <div><h2>My Journey</h2><div class="hint">Select a day to see times, notes and where we stay.</div></div>
             <div class="seg" role="group" aria-label="Filter by country">
               <button aria-pressed="true" data-f="all">All</button>
               <button aria-pressed="false" data-f="es">Spain</button>
@@ -295,7 +291,6 @@ textarea{width:100%;min-height:74px;resize:vertical;border-radius:12px;border:1p
       <section class="view" id="view-hotels" hidden>
         <div class="view-intro panel">
           <h2>Hotels</h2>
-          <div class="hint">Venice, Florence and Rome are set. Barcelona and Madrid are still open. Edits save in this browser only.</div>
         </div>
         <div class="hotels" id="hotels"></div>
       </section>
@@ -359,7 +354,6 @@ textarea{width:100%;min-height:74px;resize:vertical;border-radius:12px;border:1p
       <div class="panel more">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--rose)" stroke-width="1.5" stroke-linecap="round"><path d="M20 4C10 4 5 9 5 16c0 1.5.3 2.8.8 4M20 4c0 9-5 14-12 14M20 4 9 15"/></svg>
         <h3>More to come…</h3>
-        <p>A little structure for the journey, with plenty of room for spontaneous discoveries.</p>
       </div>
     </aside>
   </div>
@@ -424,8 +418,6 @@ const CHECK=[
  ['a4','Colosseum, Roman Forum & Palatine Hill','Nov 14'],
  ['h1','Barcelona hotel','3 nights'],
  ['h2','Madrid hotel','1 night'],
- ['x1','Travel insurance',''],
- ['x2','Schengen visa & passport check','']
 ];
 
 /* storage */
